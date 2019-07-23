@@ -9,6 +9,7 @@
         margin: 0 auto;
         height: auto;
         display: block;
+        position: relative;
         a{
             float: left;
             .header_navimg{
@@ -16,12 +17,75 @@
                 height: 56px;  
             }
         } 
+
+       
         .container{
             width: 960px;
             height: 56px;
-            padding: 0 15px;
-            background-color: red;
+            padding: 0 100px 0 15px;
             margin: 0 auto;
+            .nav_menu{
+                line-height: 26px;
+                padding: 15px;
+                text-align: center;
+                font-size: 18px;
+                color: #ea6f5a;
+            }
+            .nav_menu_left{
+                float: left;
+            }
+            .nav_menu_right{
+                float: right;
+            }
+            .header_search{
+                height: 38px;
+                line-height: 38px;
+                padding: 0 40px 0 20px;
+                margin-top: 7px;
+                border: 1px solid #eee;
+                border-radius: 40px;
+                background: #eee;
+                float: left;
+                margin-left: 20px;
+            }
+        }
+        .header_right{
+            position: absolute;
+            top: 0px;
+            right: 0;
+            .header_login{
+                float: right;
+                padding: 6px 12px;
+                display: inline-block;
+                color: #969696;
+                margin: 14px 6px 0 10px;
+                font-size: 15px;
+            }
+            .header_register{
+                float: right;
+                width: 80px;
+                height: 38px;
+                line-height: 38px;
+                margin: 9px 5px 0 15px;
+                border: 1px solid rgba(236,97,73,.7);
+                border-radius: 20px;
+                font-size: 15px;
+                color: #ea6f5a;
+                background-color: transparent;
+            
+            }
+            .header_article{
+                float: right;
+                width: 100px;
+                height: 40px;
+                line-height: 40px;
+                margin: 8px 12px 0;
+                border-radius: 20px;
+                font-size: 15px;
+                color: #fff;
+                background-color: #ea6f5a;
+                
+            }
         }
     }
 

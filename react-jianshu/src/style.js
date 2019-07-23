@@ -28,6 +28,9 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     line-height: 1;
+    background:#fff;
+    color:#333;
+    font-size:16px; 
   }
   ol, ul {
     list-style: none;
@@ -44,5 +47,7 @@ export const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
+  .clear {clear:both;}
+  
 `
 export default GlobalStyle
