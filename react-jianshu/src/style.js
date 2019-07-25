@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+    text-decoration:none
   }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure, 
@@ -48,6 +49,12 @@ export const GlobalStyle = createGlobalStyle`
     border-spacing: 0;
   }
   .clear {clear:both;}
+  
+  input{  
+    background:none;  
+    outline:none;  
+    border:0px;
+  }
   
 `
 export default GlobalStyle

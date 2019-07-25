@@ -29,7 +29,11 @@
                 padding: 15px;
                 text-align: center;
                 font-size: 18px;
-                color: #ea6f5a;
+                color: #333;
+                i{
+                    font-size: 20px;
+                    color: #969696;
+                }
             }
             .nav_menu_left{
                 float: left;
@@ -37,16 +41,59 @@
             .nav_menu_right{
                 float: right;
             }
-            .header_search{
-                height: 38px;
-                line-height: 38px;
-                padding: 0 40px 0 20px;
-                margin-top: 7px;
-                border: 1px solid #eee;
-                border-radius: 40px;
-                background: #eee;
+            .header_search{  
                 float: left;
+                position: relative;
                 margin-left: 20px;
+                .header_search_input{
+                    width: 160px;
+                    height: 38px;
+                    line-height: 38px;
+                    padding: 0 40px 0 20px;
+                    margin-top: 7px;
+                    border: 1px solid #eee;
+                    border-radius: 40px;
+                    background: #eee;
+                    color: #666;
+                }
+                i{
+                    position: absolute;
+                    right: 6px;
+                    top: 14px;
+                    font-size: 26px;
+                    color: #969696;
+                }
+                .slide-enter{
+                    transition: all .2s ease-out;
+                }
+                .slide-enter-active{
+                    width: 240px;
+                }
+                .slide-exit{
+                    transition: all .2s ease-out;
+                }
+                .slide-exit-active{
+                    width: 160px;
+                }
+                .focused{
+                    width: 240px;
+                }
+                .focused_icon{
+                    background-color: #666;
+                    border-radius: 50%; 
+                    padding: 4px;
+                    top: 10px;
+                    color: 20px;
+                }
+            }
+            .menu_active{
+                color: #ea6f5a;
+                i{
+                    color: #ea6f5a;
+                }
+            }
+            .menu_app:hover{
+                background-color: #e7e7e7;
             }
         }
         .header_right{
