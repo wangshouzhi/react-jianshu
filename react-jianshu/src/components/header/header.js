@@ -1,4 +1,4 @@
-import React, { Component} from 'react'
+import React from 'react'
 import './header.less'
 import {connect } from 'react-redux'
 import navImg from './../../assets/images/nav-logo.png'
@@ -49,7 +49,7 @@ const Header = (props) => {
 const mapStateToProps = (state)=> {
     console.log(state)
     return {
-        focused: state.focused
+        focused: state.header.focused
        
     }
 }
