@@ -3,6 +3,7 @@ import './header.less'
 import {connect } from 'react-redux'
 import navImg from './../../assets/images/nav-logo.png'
 import { CSSTransition } from 'react-transition-group';
+import { actionCreators } from './store'
 
 const Header = (props) => {
     return(
@@ -49,25 +50,22 @@ const Header = (props) => {
 const mapStateToProps = (state)=> {
     console.log(state)
     return {
-        focused: state.header.focused
-       
+        focused: state.get('header').get("focused") 
+            //  state.getIn(['deader', 'focused'])
+            // 这两种写法是一样的
+            // state.get('header').get("focused")
     }
 }
 
 const mapDispathToProps = (dispatch)=> {
     return {
         searchFocus() {
-            console.log("ss")
-            const action = {
-                type: 'SEARCH_FOCUS'
-            }
-            dispatch(action)
+           
+            dispatch( actionCreators.searchFocus() )
         },
         searchBlur() {
-            const action = {
-                type: 'SEARCH_BLUR'
-            }
-            dispatch(action)
+           
+            dispatch( actionCreators.searchBlur() )
         }
     }
 }
