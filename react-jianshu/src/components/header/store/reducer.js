@@ -2,7 +2,8 @@ import { actionTypes } from  './index'
 import {  fromJS } from 'immutable'
 
 const defaultState = fromJS({
-    focused: false
+    focused: false,
+    mockList: [ ]
 });
 
 export const reducerName = (state = defaultState, action) => {
@@ -17,6 +18,9 @@ export const reducerName = (state = defaultState, action) => {
     }
     if(action.type === actionTypes.SEARCH_BLUR ) {
         return state.set("focused", false)
+    }
+    if(action.type === actionTypes.CHANGE_LIST) {
+        return state.set('mockList' , action.data);
     }
     return state
 }
