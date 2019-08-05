@@ -12,8 +12,9 @@ class Header extends Component {
     //     super(props)
     // }
     
-    getSearchMock (show) {
-        if(show){
+    getSearchMock () {
+        const { focused, mockList } = this.props
+        if(focused){
             return(
                 <div className= "search_mock">
                     <div className="search_title clearfix">
@@ -21,13 +22,11 @@ class Header extends Component {
                         <span className='search_batch'>换一批</span> 
                     </div>
                     <ul className='search_list'>
-                    {
-                        this.props.mockList.map((item)=> {
-                            return <li key={item}><a>{ item }</a></li>
-                        })
-
-                    }
-                        
+                        {
+                            mockList.map((item)=> {
+                                return <li key={item}><a href='/'>{ item }</a></li>
+                            })
+                        }
                     </ul>
                 </div>
             )
@@ -37,7 +36,7 @@ class Header extends Component {
      }
 
     render() {
-        
+        const { focused, searchFocus, searchBlur } = this.props
         return(
             <div className="header_container">
                 <div className='header_content'>
@@ -49,20 +48,20 @@ class Header extends Component {
                         <div className='header_search'> 
                             <CSSTransition
                                 timeout={200}
-                                in={this.props.focused}
+                                in={focused}
                                 classNames="slide"
                             >
                                 <div>
                                     <input type='text' 
                                             placeholder='搜索' 
-                                            className={ this.props.focused ? "focused header_search_input": "header_search_input"}
-                                            onFocus={ ()=> this.props.searchFocus() }
-                                            onBlur={ ()=> this.props.searchBlur() }/>
-                                    <i className={this.props.focused ? "focused_icon iconfont":  'iconfont'}>&#xe637;</i>
+                                            className={focused ? "focused header_search_input": "header_search_input"}
+                                            onFocus={ ()=> searchFocus() }
+                                            onBlur={ ()=> searchBlur() }/>
+                                    <i className={focused ? "focused_icon iconfont":  'iconfont'}>&#xe637;</i>
                                 </div>
                      
                             </CSSTransition>
-                            { this.getSearchMock(this.props.focused)  }
+                            { this.getSearchMock(focused)  }
                         </div>
                         
                         <a href='/' className='nav_menu nav_menu_right menu_active'><i className='iconfont'>&#xe604;</i> deta</a>

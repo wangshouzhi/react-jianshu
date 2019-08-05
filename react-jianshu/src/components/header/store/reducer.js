@@ -7,22 +7,16 @@ const defaultState = fromJS({
 });
 
 export const reducerName = (state = defaultState, action) => {
-    // switch (action.type) {
-    //     case 'ACTION_TYPE':
-    //         return 
-    //     default:
-    //         return state
-    // }
-    if(action.type === actionTypes.SEARCH_FOCUS ) {
-        return state.set("focused", true)
+    switch (action.type) {
+        case actionTypes.SEARCH_FOCUS:
+            return state.set("focused", true);
+        case actionTypes.SEARCH_BLUR:
+            return state.set("focused", false);
+        case actionTypes.CHANGE_LIST:
+            return state.set('mockList' , action.data);
+        default:
+            return state
     }
-    if(action.type === actionTypes.SEARCH_BLUR ) {
-        return state.set("focused", false)
-    }
-    if(action.type === actionTypes.CHANGE_LIST) {
-        return state.set('mockList' , action.data);
-    }
-    return state
 }
 
 export default reducerName
