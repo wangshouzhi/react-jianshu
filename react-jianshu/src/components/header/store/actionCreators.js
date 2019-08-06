@@ -6,7 +6,8 @@ import { fromJS } from 'immutable'
 */
 const changeList = (data) => ({
     type: actionTypes.CHANGE_LIST,
-    data: fromJS(data)
+    data: fromJS(data),
+    totalPage: Math.ceil(data.length / 10)
 })
 
 /**
@@ -15,8 +16,22 @@ const changeList = (data) => ({
 export const searchFocus = ()=> ({
     type: actionTypes.SEARCH_FOCUS
 })
+
 export const searchBlur = ()=> ({
     type: actionTypes.SEARCH_BLUR
+})
+
+export const handleMouse = ()=> ({
+    type: actionTypes.HANDEL_MOUSE
+})
+
+export const handleLeave = ()=> ({
+    type: actionTypes.HANDLE_LEAVE
+})
+
+export const handleChangePage = (page)=> ({
+    type: actionTypes.CHANGE_PAGE,
+    page
 })
 
 

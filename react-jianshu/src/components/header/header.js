@@ -13,20 +13,31 @@ class Header extends Component {
     // }
     
     getSearchMock () {
-        const { focused, mockList } = this.props
-        if(focused){
+        const { focused, mockList, page, totalPage, mouseIn, handleMouse, handleLeave, handleChangePage} = this.props;
+        const newList = mockList.toJS();
+        const pageList = [];
+        if(newList.length){
+            for (let i = (page-1)*10; i< page * 10; i++){
+                pageList.push(
+                    <li key={newList[i]}><a href='/'>{ newList[i] }</a></li>
+                )
+            }
+        }
+        
+        if(focused || mouseIn){
             return(
-                <div className= "search_mock">
+                <div className= "search_mock" onMouseEnter= {()=> handleMouse() } onMouseLeave= { (()=> handleLeave()) } >
                     <div className="search_title clearfix">
                         <span className='search_hot'>热门搜索</span>
-                        <span className='search_batch'>换一批</span> 
+                        <span className='search_batch' onClick= { ()=> handleChangePage(page, totalPage) }>换一批</span> 
                     </div>
                     <ul className='search_list'>
-                        {
+                        {/* {                            
                             mockList.map((item)=> {
                                 return <li key={item}><a href='/'>{ item }</a></li>
                             })
-                        }
+                        } */}
+                        {pageList}
                     </ul>
                 </div>
             )
@@ -86,7 +97,10 @@ const mapStateToProps = (state)=> {
             //  state.getIn(['deader', 'focused'])
             // 这两种写法是一样的
             // state.get('header').get("focused")
-        mockList: state.get('header').get('mockList')    
+        mockList: state.get('header').get('mockList'),
+        page: state.get('header').get('page'),
+        mouseIn: state.get('header').get('mouseIn'),
+        totalPage: state.get('header').get('totalPage')
     }
 }
 
@@ -97,8 +111,23 @@ const mapDispathToProps = (dispatch)=> {
             dispatch( actionCreators.searchFocus() )
         },
         searchBlur() {
-           
             dispatch( actionCreators.searchBlur() )
+        },
+        handleMouse() {
+            dispatch(actionCreators.handleMouse() )
+        },
+        handleLeave() {
+            dispatch(actionCreators.handleLeave())
+        },
+        handleChangePage(page,totalPage) {
+            console.log(page,totalPage)
+            if(page< totalPage){
+                dispatch(actionCreators.handleChangePage(page + 1))
+
+            }else{
+                dispatch(actionCreators.handleChangePage(1))
+            }
+            
         }
     }
 }

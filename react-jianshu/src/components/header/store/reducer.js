@@ -3,7 +3,10 @@ import {  fromJS } from 'immutable'
 
 const defaultState = fromJS({
     focused: false,
-    mockList: [ ]
+    mouseIn: false,
+    mockList: [],
+    page: 1,
+    totalPage: 1
 });
 
 export const reducerName = (state = defaultState, action) => {
@@ -13,7 +16,16 @@ export const reducerName = (state = defaultState, action) => {
         case actionTypes.SEARCH_BLUR:
             return state.set("focused", false);
         case actionTypes.CHANGE_LIST:
-            return state.set('mockList' , action.data);
+            return state.merge({
+                mockList: action.data,
+                totalPage: action.totalPage
+            });
+        case actionTypes.HANDEL_MOUSE:
+            return state.set("mouseIn", true);
+        case actionTypes.HANDLE_LEAVE:
+            return state.set("mouseIn", false);
+        case actionTypes.CHANGE_PAGE:
+            return state.set("page", action.page);
         default:
             return state
     }
