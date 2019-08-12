@@ -3,6 +3,7 @@ import './App.css';
 import GlobalStyle from './style'
 import Icon from './assets/iconfont/iconfont'
 import Header from './components/header/header'
+import Router from  './routers/router'
 
 class App extends Component {
     render() {
@@ -11,6 +12,7 @@ class App extends Component {
                 <GlobalStyle />
                 <Icon ></Icon>
                 <Header></Header>
+                <Router></Router>
             </div>
         )
     }

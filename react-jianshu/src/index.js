@@ -5,6 +5,7 @@ import './style'
 import './assets/iconfont/iconfont'
 import { Provider } from 'react-redux'
 import store from './store/store'
+// import Router from  './routers/router'
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

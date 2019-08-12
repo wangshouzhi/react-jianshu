@@ -29,7 +29,7 @@ class Header extends Component {
                 <div className= "search_mock" onMouseEnter= {()=> handleMouse() } onMouseLeave= { (()=> handleLeave()) } >
                     <div className="search_title clearfix">
                         <span className='search_hot'>热门搜索</span>
-                        <span className='search_batch' onClick= { ()=> handleChangePage(page, totalPage) }>换一批</span> 
+                        <span className='search_batch' onClick= { ()=> handleChangePage(page, totalPage) }><i className='iconfont'>&#xe604;</i>换一批</span> 
                     </div>
                     <ul className='search_list'>
                         {/* {                            
@@ -47,7 +47,7 @@ class Header extends Component {
      }
 
     render() {
-        const { focused, searchFocus, searchBlur } = this.props
+        const { focused, searchFocus, searchBlur, mockList } = this.props
         return(
             <div className="header_container">
                 <div className='header_content'>
@@ -66,9 +66,9 @@ class Header extends Component {
                                     <input type='text' 
                                             placeholder='搜索' 
                                             className={focused ? "focused header_search_input": "header_search_input"}
-                                            onFocus={ ()=> searchFocus() }
+                                            onFocus={ ()=> searchFocus(mockList) }
                                             onBlur={ ()=> searchBlur() }/>
-                                    <i className={focused ? "focused_icon iconfont":  'iconfont'}>&#xe637;</i>
+                                    <i className={focused ? "focused_icon iconfont zoom":  'iconfont zoom'}>&#xe637;</i>
                                 </div>
                      
                             </CSSTransition>
@@ -106,8 +106,10 @@ const mapStateToProps = (state)=> {
 
 const mapDispathToProps = (dispatch)=> {
     return {
-        searchFocus() {
-            dispatch(actionCreators.getAjaxList())
+        searchFocus(mockList) {
+            if (mockList.size === 0) {
+                dispatch(actionCreators.getAjaxList())
+            }
             dispatch( actionCreators.searchFocus() )
         },
         searchBlur() {
