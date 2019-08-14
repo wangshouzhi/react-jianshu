@@ -49,7 +49,14 @@ export const GlobalStyle = createGlobalStyle`
     border-spacing: 0;
   }
   .clear {clear:both;}
-  
+  .clearfix:after {
+    display:block;
+    height:0;
+    clear:both;
+  }
+  .clearfix{
+    zoom:1;
+  }
   input{  
     background:none;  
     outline:none;  
