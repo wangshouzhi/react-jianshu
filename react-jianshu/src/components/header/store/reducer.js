@@ -10,6 +10,7 @@ const defaultState = fromJS({
 });
 
 export const reducerName = (state = defaultState, action) => {
+    console.log(action.type)
     switch (action.type) {
         case actionTypes.SEARCH_FOCUS:
             return state.set("focused", true);

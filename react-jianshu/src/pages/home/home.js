@@ -3,7 +3,8 @@ import './home.less'
 import Banner from './components/Banner'
 import Board from './components/board'
 import NewList from './components/newList'
-import HomeDownloadApp from './components/homeDownloadApp' 
+import HomeDownloadApp from './components/homeDownloadApp'
+import AuthorList from './components/authorList'
 
 class Home extends Component {
     render() {
@@ -16,6 +17,7 @@ class Home extends Component {
                 <div className='home_right'>
                     <Board></Board>
                     <HomeDownloadApp></HomeDownloadApp>
+                    <AuthorList></AuthorList>
                 </div>
             </div>
         )
