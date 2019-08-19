@@ -5,7 +5,7 @@ import Board from './components/board'
 import NewList from './components/newList'
 import HomeDownloadApp from './components/homeDownloadApp'
 import AuthorList from './components/authorList'
-
+import BackTop from './../../components/backTop/backTop'
 class Home extends Component {
     render() {
         return(
@@ -19,6 +19,7 @@ class Home extends Component {
                     <HomeDownloadApp></HomeDownloadApp>
                     <AuthorList></AuthorList>
                 </div>
+                <BackTop></BackTop>
             </div>
         )
     }

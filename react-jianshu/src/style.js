@@ -62,6 +62,8 @@ export const GlobalStyle = createGlobalStyle`
     outline:none;  
     border:0px;
   }
-  
+  a {
+    color: #333;
+  }
 `
 export default GlobalStyle
