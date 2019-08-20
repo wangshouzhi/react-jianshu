@@ -6,6 +6,7 @@ import Club from './../pages/mobile/club/club'
 import Books from './../pages/mobile/books/books'
 import Publication from './../pages/mobile/publication/publication'
 import School from './../pages/mobile/school/school'
+import DownloadApp from './../pages/download-app/downloadApp'
 
 const  basicRouter = () => (
     <HashRouter>
@@ -16,6 +17,7 @@ const  basicRouter = () => (
             <Route exact path="/mobile/books" component={ Books }/>
             <Route exact path="/mobile/publications" component={ Publication }/>
             <Route exact path="/mobile/school" component={ School }/>
+            <Route exact path="/pages/downloadapp" component={ DownloadApp }/>
         </Switch>
     </HashRouter>
 );
