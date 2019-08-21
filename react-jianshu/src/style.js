@@ -65,5 +65,8 @@ export const GlobalStyle = createGlobalStyle`
   a {
     color: #333;
   }
+  img{
+    vertical-align: middle;
+  }
 `
 export default GlobalStyle
